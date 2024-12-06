@@ -1,0 +1,24 @@
+The solution involves explicitly accounting for the border width in the calculation:
+
+```css
+div {
+  width: calc(50% - 20px); /* Subtract double border width */
+  height: calc(50% - 20px); /* Subtract double border width */
+  box-sizing: border-box;
+  border: 10px solid black;
+}
+```
+
+This ensures that the border is correctly accounted for in the overall dimension. Alternatively, using CSS variables to encapsulate this logic improves readability and maintainability.
+
+```css
+:root {
+  --border-width: 10px;
+}
+div {
+  width: calc(50% - 2 * var(--border-width));
+  height: calc(50% - 2 * var(--border-width));
+  box-sizing: border-box;
+  border: var(--border-width) solid black;
+}
+```
