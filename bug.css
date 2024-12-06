@@ -1,0 +1,12 @@
+The following CSS rule exhibits unexpected behavior in some browsers:
+
+```css
+div {
+  width: 50%;
+  height: 50%;
+  box-sizing: border-box;
+  border: 10px solid black;
+}
+```
+
+The `box-sizing: border-box;` property is intended to include padding and border in the element's total width and height.  However, some older browsers or those with rendering quirks might not correctly apply this, causing the div to overflow its containing element.  The apparent width and height will be larger than 50% because the 10px border is added externally.
